@@ -1,33 +1,62 @@
 \section{Цель работы}
 	Описать сценарии, которые реализует система.
-\section{Порядок выполенения работы}
-	\subsection{Диаграмма деятельности}
 	
-		Диаграмма деятельности для всей системы указана на рис. 1.
+\section{Диаграмма вариантов использования}
+
+
+	\subsection{Диаграммы деятельности}
+	
 	
 		\begin{figure}[ht] 
 			\center
-			\includegraphics [width=0.6\textwidth] {UML-activity.png}
-			\caption{Диаграмма деятельности} 
+			\includegraphics [width=0.6\textwidth] {zombie}
+			\caption{Зомби} 
 		\end{figure}
+		
+		\begin{figure}[ht] 
+			\center
+			\includegraphics [width=0.4\textwidth] {not-knowing}
+			\caption{Человек незнающий} 
+		\end{figure}
+	
+		\begin{figure}[ht] 
+			\center
+			\includegraphics [width=0.4\textwidth] {knowing}
+			\caption{Человек знающий} 
+		\end{figure}
+	
+		\begin{figure}[ht] 
+			\center
+			\includegraphics [width=0.8\textwidth] {defender}
+			\caption{Защитник человечества} 
+		\end{figure}
+
+	
 		\FloatBarrier
 		\clearpage
 	%\subsection{Диаграмма прецедентов}
 		
-	\subsection{Последовательность действий}
-	
-	Последовательность действий изложена в терминах FIPA-протоколов.
-	
-	В системе есть управляющий агент, который занимается рассылкой сообщений о том, что начался очередной ход (ход движения зомби, ход атаки людей и т.д.).
-	
-	В начальный момент времени он ждёт, пока не появится необходимое количество агентов, которые получают у него начальные данные по протоколу \textbf{Query-ref} (размер карты, их координаты, сгенерированные случайно). В конце случайно выбирается первый агент-заражённый, все остальные - люди.
-		
-	Далее агент управляющий полчает всех агентов нужного типа (зомби/человек) в жёлтой книге (DFService). Всем им отправляется \textbf{Request} соответствующего текущей стадии симуляции действия. Это повторяется, пока все объекты в системе не станут одного типа.
-	
-	\subsubsection{Движение}
-		Участник отправляет всем людям запрос всем соперникам \textbf{Query-ref} об их координах в определённом радиусе от него. Соперники вне радиуса отвечают отказом, а соперники в заданном радиусе передают координаты.
-		
-		Далее ходячий двигается в зависимости от своей текущей роли и состояния.
-		
-	\subsubsection{Атака}
-		Участник отправляет запрос \textbf{Query-ref} всем соперникам о нахождении в той же точке, что и он. Далее происходит атака одного из найденных соперников, если таковые есть.
+	\subsection{Диаграммы последовательности}
+			\begin{figure}[ht] 
+				\center
+				\includegraphics [width=0.5\textwidth] {inter_man}
+				\caption{Зомби и незнающий}  
+			\end{figure}
+			
+			\begin{figure}[ht] 
+				\center
+				\includegraphics [width=0.5\textwidth] {inter_knowing}
+				\caption{Зомби и знающий} 
+			\end{figure}
+			
+			\begin{figure}[ht] 
+				\center
+				\includegraphics [width=0.6\textwidth] {inter_5}
+				\caption{4 зомби и защитник человечества} 
+			\end{figure}
+			
+			\begin{figure}[ht] 
+				\center
+				\includegraphics [width=0.6\textwidth] {inter_4}
+				\caption{Сложное взаимодействие} 
+			\end{figure}
