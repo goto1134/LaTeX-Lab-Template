@@ -1,0 +1,3 @@
+[scared] INFO com.goto1134.zombietown.Walker - Arrived
+[zombie] INFO com.goto1134.zombietown.Walker - Arrived
+[scared] INFO com.goto1134.zombietown.Walker - scared@127.0.0.1:1099/JADE ran away

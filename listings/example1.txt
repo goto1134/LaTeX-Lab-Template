@@ -1,0 +1,4 @@
+[dummy] INFO com.goto1134.zombietown.Walker - Arrived
+[zombie] INFO com.goto1134.zombietown.Walker - Arrived
+[zombie] INFO com.goto1134.zombietown.Walker - Request kill dummy@127.0.0.1:1099/JADE
+[dummy] INFO com.goto1134.zombietown.Walker - Turned

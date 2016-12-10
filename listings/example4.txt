@@ -1,0 +1,11 @@
+[scared] INFO com.goto1134.zombietown.Walker - Arrived
+[defender] INFO com.goto1134.zombietown.Walker - Arrived
+[dummy] INFO com.goto1134.zombietown.Walker - Arrived
+[zombie] INFO com.goto1134.zombietown.Walker - Arrived
+[scared] INFO com.goto1134.zombietown.Walker - scared@127.0.0.1:1099/JADE ran away
+[defender] INFO com.goto1134.zombietown.Walker - Request kill zombie@127.0.0.1:1099/JADE
+[zombie] INFO com.goto1134.zombietown.Walker - Request kill dummy@127.0.0.1:1099/JADE
+[zombie] INFO com.goto1134.zombietown.Walker - Died
+[dummy] INFO com.goto1134.zombietown.Walker - Turned
+[defender] INFO com.goto1134.zombietown.Walker - Request kill dummy@127.0.0.1:1099/JADE
+[dummy] INFO com.goto1134.zombietown.Walker - Died

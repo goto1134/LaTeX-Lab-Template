@@ -1,0 +1,12 @@
+[defender] INFO com.goto1134.zombietown.Walker - Arrived
+[z1] INFO com.goto1134.zombietown.Walker - Arrived
+[defender] INFO com.goto1134.zombietown.Walker - Request kill z1@127.0.0.1:1099/JADE
+[z1] INFO com.goto1134.zombietown.Walker - Died
+[z2] INFO com.goto1134.zombietown.Walker - Arrived
+[defender] INFO com.goto1134.zombietown.Walker - Request kill z2@127.0.0.1:1099/JADE
+[z2] INFO com.goto1134.zombietown.Walker - Died
+[z3] INFO com.goto1134.zombietown.Walker - Arrived
+[defender] INFO com.goto1134.zombietown.Walker - Request kill z3@127.0.0.1:1099/JADE
+[z3] INFO com.goto1134.zombietown.Walker - Died
+[z4] INFO com.goto1134.zombietown.Walker - Arrived
+[defender] INFO com.goto1134.zombietown.Walker - Turned
