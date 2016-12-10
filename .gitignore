@@ -30,7 +30,7 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
-*.tex.[\w\d]+;
+*.tex.*;
 
 ## Auxiliary and intermediate files from other packages:
 
