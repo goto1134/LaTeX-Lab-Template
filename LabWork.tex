@@ -20,17 +20,15 @@
 \input{Dissertation/inclusioncontrol}    % Управление компиляцией отдельных частей диссертации
 \usepackage[section]{placeins}
 
+\usepackage{hyperref} %ссылки на сторонние ресурсы
+
+\renewcommand\thesection{\arabic{section}} %номера секций не содержат номер главы
+
 \begin{document}
 
-\input{common/renames}                   % Переопределение именований
-
-% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
-\include{LabWork/title}           % Титульный лист
-%\include{LabWork/introduction}    % Введение
-%\include{LabWork/part1}
-\include{LabWork/lab6}
-%\include{Dissertation/part1}           % Глава 1
-%\include{Dissertation/part2}           % Глава 2
-%\include{Dissertation/part3}           % Глава 3
-%\include{Dissertation/conclusion}      % Заключение
+	\input{common/renames}                   % Переопределение именований
+	
+	% Структура диссертации (ГОСТ Р 7.0.11-2011, 4)
+	\include{LabWork/title}           % Титульный лист
+	\include{LabWork/lab6}
 \end{document}
