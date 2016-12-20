@@ -1,0 +1,22 @@
+concepts constraints Place {
+  can be child <none>
+
+  can be parent <none>
+
+  can be ancestor <none>
+
+
+  property {name}
+    get:<default>
+    set:<default>
+    is valid:(propertyValue, node)->boolean {
+      node.parent.descendants<concept = Place>.where({~it => it.name == propertyValue && it != node; }).isEmpty;
+    }
+
+
+  <<referent constraints>>
+
+  default scope
+    <no default scope>
+
+}

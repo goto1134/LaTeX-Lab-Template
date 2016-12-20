@@ -1,0 +1,15 @@
+concept Project extends BaseConcept
+                implements IValidIdentifier
+
+instance can be root: true 
+alias: project
+short description: DCN Project
+
+properties:
+<< ... >>
+
+children:
+<< ... >>
+
+references:
+axiom : Net[1]

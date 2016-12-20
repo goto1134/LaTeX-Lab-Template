@@ -1,0 +1,16 @@
+concept Connection extends BaseConcept
+                   implements IExecutable
+                              IResouceCapturer
+
+instance can be root: false 
+alias: connection
+short description: <no short description>
+
+properties:
+type : ConnectionType
+
+children:
+<< ... >>
+
+references:
+place : Place[1]

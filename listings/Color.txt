@@ -1,0 +1,17 @@
+concept Color extends BaseConcept
+              implements IType
+
+  instance can be root: false
+alias: color
+short description: RGB color
+
+properties:
+r : integer
+g : integer
+b : integer
+
+children:
+<< ... >>
+
+references:
+<< ... >>

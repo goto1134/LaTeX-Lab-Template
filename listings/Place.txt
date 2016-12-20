@@ -1,0 +1,16 @@
+concept Place extends BaseConcept
+              implements IValidIdentifier
+                         IResouceCapturer
+
+instance can be root: false 
+alias: place
+short description: Place with resources
+
+properties:
+<< ... >>
+
+children:
+<< ... >>
+
+references:
+resource : Resource[1]

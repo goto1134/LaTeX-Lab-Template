@@ -1,0 +1,18 @@
+concept Net extends BaseConcept
+            implements IValidIdentifier
+
+instance can be root: true
+alias: net
+short description: <no short description>
+
+properties:
+<< ... >>
+
+children:
+inputPlaces : Place[0..n]
+outputPlaces : Place[0..n]
+otherPlaces : Place[0..n]
+transitions : Transition[0..n]
+
+references:
+<< ... >>

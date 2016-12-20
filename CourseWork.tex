@@ -22,7 +22,9 @@
 
 \usepackage{hyperref} %ссылки на сторонние ресурсы
 
-\renewcommand\thesection{\arabic{section}} %номера секций не содержат номер главы
+\usepackage[linesnumbered,titlenotnumbered]{algorithm2e}%псевдокод
+
+%\renewcommand\thesection{\arabic{section}} %номера секций не содержат номер главы
 
 \begin{document}
 	\input{common/renames}                   % Переопределение именований
@@ -31,4 +33,7 @@
 	\include{CourseWork/introduction}
 	\include{CourseWork/course}
 	\include{CourseWork/conclusion}
+	\include{CourseWork/references}
+	\include{CourseWork/appendix}
+	
 \end{document}

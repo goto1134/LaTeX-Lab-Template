@@ -1,0 +1,36 @@
+concepts constraints Color { 
+  can be child <none> 
+   
+  can be parent <none> 
+   
+  can be ancestor <none> 
+     
+   
+  property {b} 
+    get:<default> 
+    set:<default> 
+    is valid:(propertyValue, node)->boolean { 
+      propertyValue >= 0 && propertyValue <= 255; 
+    } 
+   
+  property {r} 
+    get:<default> 
+    set:<default> 
+    is valid:(propertyValue, node)->boolean { 
+      propertyValue >= 0 && propertyValue <= 255; 
+    } 
+   
+  property {g} 
+    get:<default> 
+    set:<default> 
+    is valid:(propertyValue, node)->boolean { 
+      propertyValue >= 0 && propertyValue <= 255; 
+    } 
+   
+   
+  <<referent constraints>> 
+   
+  default scope 
+    <no default scope> 
+   
+}

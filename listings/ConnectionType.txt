@@ -1,0 +1,10 @@
+enumeration datatype ConnectionType
+
+  member type : integer
+  no default : false
+  default : <1-st member>
+  member identifier : derive from internal value
+
+
+  value 0   presentation PLACE_TO_TRANSITION     (default)
+  value 1   presentation TRANSITION_TO_PLACE              

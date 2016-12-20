@@ -1,0 +1,11 @@
+interface concept IResouceCapturer extends <none>                                        
+
+
+properties:
+resourceCount : integer
+
+children:
+<< ... >>
+
+references:
+<< ... >>

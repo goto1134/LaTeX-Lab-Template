@@ -1,0 +1,22 @@
+concepts constraints IResouceCapturer {
+  can be child <none>
+
+  can be parent <none>
+
+  can be ancestor <none>
+
+
+  property {resourceCount}
+    get:<default>
+    set:<default>
+    is valid:(propertyValue, node)->boolean {
+      propertyValue >= 0;
+    }
+
+
+  <<referent constraints>>
+
+  default scope
+    <no default scope>
+
+}

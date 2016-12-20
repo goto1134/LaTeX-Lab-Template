@@ -1,0 +1,15 @@
+concept Resource extends BaseConcept
+                 implements IValidIdentifier
+
+instance can be root: true 
+alias: resource
+short description: Type of resources in the project
+
+properties:
+<< ... >>
+
+children:
+color : Color[1]
+
+references:
+<< ... >>

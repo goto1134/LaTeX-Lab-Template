@@ -1,0 +1,27 @@
+\begin{minipage}[ht]{0.8\textwidth}
+	\begin{algorithm}[H]
+		\Begin
+		{
+			$\bar{\mu}:=\mu$;\\
+			$i:=1 $;\\
+			$ arg:=<> $;\\
+			\While{$ i\leq \nu'(t) $}
+			{
+				$ p:=I_T(t)(i) $;\\
+				$ arg:=arg<head(\vec{\mu}(p))(1)> $;\\
+				$ \vec{\mu}(p):=tail(\mu(p)) $;\\
+				$ i:=i+1 $;\\	
+			}
+			$ val:=\phi_T(t)(arg) $;\\
+			$ i:=1 $;\\
+			\While{$ val\not=<> $}
+			{
+				$ p:=O_T(t)(i) $;\\
+				$ \vec{\mu}(p):=\vec{\mu}(p)+1_{<head(val),\tau+\lambda_O(<t,O_T(t)(i)>) } $;\\
+				$ val:=tail(val) $
+			}
+		}
+		
+		\caption{Алгоритм нахождения маркировки.}
+	\end{algorithm}
+\end{minipage}

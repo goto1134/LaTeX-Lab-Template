@@ -1,0 +1,11 @@
+interface concept IExecutable extends <none>                                             
+
+
+properties:
+time : _FPNumber_String
+
+children:
+<< ... >>
+
+references:
+<< ... >>

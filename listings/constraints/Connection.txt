@@ -1,0 +1,29 @@
+concepts constraints Connection { 
+  can be child <none>
+
+  can be parent <none>
+
+  can be ancestor <none>
+
+
+  <<property constraints>>
+
+  link {place}
+    referent set handler:<none>
+    scope:
+      (exists, referenceNode, contextNode, containingLink, linkTarget, operationContext, enclosingNode, model, position, contextRole)->Scope {
+        final sequence<node<Place>> places = enclosingNode.parent.descendants<concept = Place>;
+        new ListScope(places) {
+          public string getName(node<> child) {
+            child : INamedConcept.name;
+          }
+        };
+      }
+    presentation :
+      <no presentation>
+  ;
+
+  default scope
+    <no default scope>
+
+}

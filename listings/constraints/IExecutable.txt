@@ -1,0 +1,22 @@
+concepts constraints IExecutable {
+  can be child <none>
+
+  can be parent <none>
+
+  can be ancestor <none>
+
+
+  property {time}
+    get:<default>
+    set:<default>
+    is valid:(propertyValue, node)->boolean {
+      !propertyValue.startsWith("-");
+    }
+
+
+  <<referent constraints>>
+
+  default scope
+    <no default scope>
+
+}

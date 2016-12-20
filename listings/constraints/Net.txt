@@ -1,0 +1,25 @@
+concepts constraints Net {
+  can be child <none>
+
+  can be root <none>
+
+
+  can be parent <none>
+
+  can be ancestor <none>
+
+
+  property {name}
+    get:<default>
+    set:<default>
+    is valid:(propertyValue, node)->boolean {
+      node.model.nodes(Net).where({~it => it.name == propertyValue && it != node; }).isEmpty;
+    }
+
+
+  <<referent constraints>>
+
+  default scope
+    <no default scope>
+
+}
