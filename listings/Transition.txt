@@ -2,7 +2,7 @@ concept Transition extends BaseConcept
                    implements IType
                               IExecutable
 
-instance can be root: false
+  instance can be root: false
 alias: transition
 short description: <no short description>
 
@@ -10,8 +10,7 @@ properties:
 << ... >>
 
 children:
-inputConnections : Connection[0..n]
-outputConnections : Connection[0..n]
+connections : Connection[0..n]
 
 references:
 net : Net[0..1]

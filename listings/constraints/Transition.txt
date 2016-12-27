@@ -1,0 +1,24 @@
+concepts constraints Transition {
+  can be child <none>
+
+  can be parent
+    (childConcept, node, childNode, operationContext, link)->boolean {
+
+      if (childNode.isInstanceOf(Connection)) {
+        node<Connection> child = childNode : Connection;
+        if (!node.net.isNotNull) { return child.type != 2; }
+      }
+      return true;
+    }
+
+  can be ancestor <none>
+
+
+  <<property constraints>>
+
+  <<referent constraints>>
+
+  default scope
+    <no default scope>
+
+}

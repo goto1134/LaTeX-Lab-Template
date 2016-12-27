@@ -1,26 +1,32 @@
 net Axiom {
-
-  input places :
+  input places:
     place Input resource Bike(resource count: 1)
-  output places :
-    place Output resource Car(resource count: 0)
-  other places :
-    << ... >>
-  transitions :
-    transition net : SimpleNet {
-      time : 2.1
 
-      input connections :
+  output places:
+    place Output resource Car(resource count: 0)
+
+  other places:
+    place ControlPlace resource Nat(resource count: 2)
+
+  transitions:
+    transition net SimpleNet {
+      time: 2.1
+
+      connections:
         connection place Input {
           type: PLACE_TO_TRANSITION
-          resource count: 2
-          time: 3.1
+          resource count: 1
+          time: 1.1
         }
-      output connections :
         connection place Output {
           type: TRANSITION_TO_PLACE
-          resource count: 3
-          time: 2.4
+          resource count: 1
+          time: 2.1
+        }
+        connection place ControlPlace {
+          type: CONTROL_TRANSITION
+          resource count: 2
+          time: 0.
         }
     }
 }

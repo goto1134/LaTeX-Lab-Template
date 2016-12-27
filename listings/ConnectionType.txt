@@ -7,4 +7,5 @@ enumeration datatype ConnectionType
 
 
   value 0   presentation PLACE_TO_TRANSITION     (default)
-  value 1   presentation TRANSITION_TO_PLACE              
+  value 1   presentation TRANSITION_TO_PLACE
+  value 2   presentation CONTROL_TRANSITION               

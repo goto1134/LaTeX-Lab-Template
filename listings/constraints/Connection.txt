@@ -1,4 +1,4 @@
-concepts constraints Connection { 
+concepts constraints Connection {
   can be child <none>
 
   can be parent <none>
@@ -6,7 +6,16 @@ concepts constraints Connection {
   can be ancestor <none>
 
 
-  <<property constraints>>
+  property {type}
+    get:<default>
+    set:<default>
+    is valid:(propertyValue, node)->boolean {
+      if (node.type == 2) {
+        if (!node.place.resource.name.equals("Nat")) { return false; }
+      }
+      return true;
+    }
+
 
   link {place}
     referent set handler:<none>

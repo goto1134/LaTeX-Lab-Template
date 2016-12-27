@@ -1,26 +1,27 @@
 net SimpleNet {
-
-  input places :
+  input places:
     place NewPlace resource Car(resource count: 2)
-  output places :
-    place SP resource Bike(resource count: 4)
-  other places :
-    << ... >>
-  transitions :
-    transition net : <no net> {
-      time : 0.2
 
-      input connections :
+  output places:
+    place SP resource Bike(resource count: 4)
+
+  other places:
+    << ... >>
+
+  transitions:
+    transition net <no net> {
+      time: 2.1
+
+      connections:
         connection place NewPlace {
           type: PLACE_TO_TRANSITION
-          resource count: 3
-          time: 0.1
+          resource count: 2
+          time: 1.1
         }
-      output connections :
         connection place SP {
           type: TRANSITION_TO_PLACE
           resource count: 2
-          time: 1.1
+          time: 12.3
         }
     }
 }
