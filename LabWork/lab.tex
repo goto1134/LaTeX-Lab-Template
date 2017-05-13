@@ -1,10 +1,10 @@
 	\section{Цель работы}
-		Разработать экспертную систему с использованием среды GURU.
+		Разработать экспертную систему на основе Байесовской сети доверия с использованием среды HUGIN.
 		
 	\section{Предметная область}
 		Целевая ЭС выполняет функцию оценки платформ для социальной торговли. Социальная торговля -- онлайн-трейдинг на финансовых рынках в рамках социальной платформы, внутри которой трейдеры взаимодействуют друг с другом.
 		
-		На рисунке \ref{tree} изображено дерево целей экспертной системы. Дугами отмечены вершины И, отсутствием дуг ИЛИ.
+		На рисунке \ref{tree} изображено дерево целей экспертной системы. 
 		
 		\begin{figure}[ht] 
 			\center
@@ -14,42 +14,90 @@
 		\end{figure}
 		\FloatBarrier
 		
-	\section{Описание ЭС}
-	
-	На основе дерева целей описаны переменные и правила, представленные в листинге.
-	
-	Системная переменная $ E.CFVA $, которая определяет формулу объединения факторов уверенности левой и правой частей правила имеет значение <<pp>>, т.е. фактор уверенности для операции <<И>> вычисляется по формуле $(a * b) / 100$, а для правила <<ИЛИ>> - по формуле 	$a + b - (a * b) / 100$
-	
-	Системная переменная $E.TRAC = <n>$ определяет режим работы системы – без трассировки.
-	
-	С помощью переменной $E.RIGR$ определяется режим проверки конфликтующих правил для достижения результата с заданной степенью точности. $E.RIGR = <с>$ – все возможные правила (полный перебор).
-	
-	Режим оценки $E.TRYP = <s>$ - проверка неизвестных переменных, пока значение какой-либо из них не будет получено.
-	 
-	$E.LNUM = 3$ -  длина числового значения для округления.
-	
-	$E.DECI = 0$ - число значащих цифр после запятой.
-	
+		На рисунке \ref{bn} представлена проектируемая Байесовская сеть доверия, составленная на основе дерева целей.
 		
-	\section{Листинг}
+		\begin{figure}[ht] 
+			\center
+			\includegraphics [width=0.8\textwidth] {bayes-tree}
+			\caption{Байесовская сеть доверия} 
+			\label{bn}
+		\end{figure}
+		\FloatBarrier
+		
+	\section{Таблицы условных вероятностей}
 	
-%	\lstinputlisting[caption={Листинг программы}]{listings/st.rss}
+		Далее представлены таблицы условных вероятностей для каждой вершины БСД. На рисунке \ref{input} представлены 
+		таблицы вероятностей вершин, отмеченных как входные.
+		
+		\begin{figure}[ht]
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{demo} \\ а) Демо-аккаунт}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{materials} \\ б) Обучающие материалы}
+			\end{minipage}
+			\vfill
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{real-money} \\ в) Советники используют реальные деньги}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{risk} \\ г) Количество советников с большим риском}
+			\end{minipage}
+			\vfill
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{investment} \\ д) Начальный вклад}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{currencies} \\ е) Количество валют}
+			\end{minipage}
+			\caption{Таблицы условных вероятностей для входных вершин.}
+			\label{input}  
+		\end{figure}
 	
+		На рисунке \ref{output} представлены 
+		таблицы вероятностей остальных вершин.
+		
+		\begin{figure}[ht]
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{education} \\ а) Обучение}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[ht]{0.49\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{advisers} \\ б) Советники}
+			\end{minipage}
+			\vfill
+			\center{
+				\begin{minipage}[ht]{0.49\linewidth}
+					\center{\includegraphics[width=0.8\linewidth]{wallet} \\ в) Кошелёк}
+				\end{minipage}
+			}
+			\vfill
+			\begin{minipage}[ht]{0.8\linewidth}
+				\center{\includegraphics[width=0.8\linewidth]{rating} \\ д) Рейтинг платформы}
+			\end{minipage}
+			\caption{Таблицы условных вероятностей для остальных вершин.}
+			\label{output}  
+		\end{figure}
+		\FloatBarrier
 	\newpage
 	\section{Примеры выполнения}
-%		\begin{figure}[ht] 
-%			\center
-%			\includegraphics [width=\textwidth] {success}
-%			\caption{Пример хорошей платформы} 
-%		\end{figure}
-%		\FloatBarrier
-%		
-%		\begin{figure}[ht] 
-%			\center
-%			\includegraphics [width=\textwidth] {failure}
-%			\caption{Пример плохой платформы} 
-%		\end{figure}
-%		\FloatBarrier
+	
+	На рисунке \ref{examples} изображены примеры работы БСД.
+	\begin{figure}[ht]
+		\begin{minipage}[ht]{0.49\linewidth}
+			\center{\includegraphics[width=0.8\linewidth]{result-normal} \\ а) Пример хорошей платформы}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[ht]{0.49\linewidth}
+			\center{\includegraphics[width=0.85\linewidth]{result-bad} \\ б) Пример плохой платформы}
+		\end{minipage}
+		\caption{Примеры выполнения.}
+		\label{examples}  
+	\end{figure}
+
 	
 	\section{Вывод}
-		В результате данной работы была спроектирована разработана ЭС, которая позволяет дать экспертную оценку платформам социальной торговли по введенным параметрам. Изучена программа GURU.
+		В результате данной работы была спроектирована разработана ЭС на основе Байесовской сети доверия, которая позволяет дать экспертную оценку платформам социальной торговли по введенным параметрам. Изучена программа HUGIN.
