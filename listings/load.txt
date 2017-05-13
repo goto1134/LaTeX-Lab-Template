@@ -1,0 +1,31 @@
+CLIPS> (load "e:\\dropbox\\projects\\clipsfv\\st.clp")
+Defining defglobal: RATING
+Defining defglobal: cfMATERIALS
+Defining defglobal: cfDEMO
+Defining defglobal: cfREALMONEY
+Defining defglobal: cfRISKY
+Defining defglobal: cfINITMONEY
+Defining defglobal: cfCURRENCIES
+Defining defrule: DEMO-input +j+j
+Defining defrule: MATERIALS-input =j+j
+Defining defrule: REALMONEY-input =j+j
+Defining defrule: RISKY-input =j+j
+Defining defrule: INITMONEY-input =j+j
+Defining defrule: CURRENCIES-input =j+j
+Defining deffunction: sum
+Defining defrule: PAID_DEMO +j+j
+Defining defrule: FREE_DEMO +j+j
+Defining defrule: NO_DEMO +j+j
+Defining defrule: HAS_MATERIALS +j+j
+Defining defrule: NO_MATERIALS +j+j
+Defining defrule: MUST_USE_REALMONEY +j+j
+Defining defrule: NOT_ONLY_REALMONEY +j+j
+Defining defrule: LITTLE_RISKY +j+j
+Defining defrule: VERY_RISKY +j+j
+Defining defrule: LITTLE_INITMONEY +j+j
+Defining defrule: MIDDLE_INITMONEY +j+j
+Defining defrule: MUCH_INITMONEY +j+j
+Defining defrule: FEW_CURRENCIES +j+j
+Defining defrule: MANY_CURRENCIES +j+j
+Defining defrule: mainRes +j+j
+TRUE
