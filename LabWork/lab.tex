@@ -29,12 +29,30 @@
 	Для начала работы необходимо загрузить программу в консоль CLIPS. Делается это с помощью команды \textit{load}, как показано в листинге \ref{loading}.
 	
 	\lstinputlisting[caption={Загрузка программы}, label=loading]{listings/load.txt}
+	
 
 	В листинге \ref{good} приведён пример платформы с высоким рейтингом, а в листинге \ref{bad} - с низким.
 
 	\lstinputlisting[caption={Платформа с высоким рейтингом}, label=good]{listings/success.txt}
+	
+	Формула для расчёта, где $\vee$ - операция <<И>> над коэффициентами уверенности:
+	\begin{multline}
+		\frac{cfCURRENCY}{2} \vee \frac{cfINITMONEY}{4} \vee \frac{cfRISKY}{2}\\
+		\vee \frac{cfREALMONEY}{2} \vee \frac{cfMATERIALS}{2} \vee \frac{cfDEMO}{4} = \\
+		= \frac{90}{2} \vee \frac{80}{4} \vee \frac{88}{2}
+		\vee \frac{100}{2} \vee \frac{90}{2} \vee \frac{80}{4} = 96
+	\end{multline}
 
 	\lstinputlisting[caption={Платформа с низким рейтингом}, label=bad]{listings/failure.txt}
+	
+	Формула для расчёта:
+	\begin{multline}
+		\frac{100-cfDEMO}{4} \vee \frac{100 - cfMATERIALS}{4} 	\vee \frac{100-cfREALMONEY}{4} \vee\\
+		\vee \frac{100-cfRISKY}{4} \vee \frac{100-cfINITMONEY}{4} \vee \frac{100-cfCURRENCY}{4} =\\
+		=\frac{100-90}{4} \vee \frac{100 - 80}{4} 	\vee \frac{100-70}{4}
+		 \vee \frac{100-100}{4} \vee \frac{100-90}{4} \vee \frac{100-60}{4}=\\
+		 = 40
+	\end{multline}
 
 \section{Вывод}
 	В результате данной работы была спроектирована разработана ЭС, которая позволяет дать экспертную оценку платформам социальной торговли по введенным параметрам. Изучена программа для создания экспертных систем CLIPS.
