@@ -25,7 +25,7 @@ INITIAL:
 	DEMOACCOUNT= UNKNOWN;
 	HASSTUDYMATERIALS= UNKNOWN;
 	MINSTART= UNKNOWN;
-	
+
 	clear;
 	putform main;
 	wait;
@@ -35,10 +35,10 @@ DO:
 
 	? "-------------------Result-------------"
 
-	if hival(RATING)
+	if hicf(RATING)>50
 		? "STP is good. Garantee is ", hicf(RATING);
 	else
-		? "STP is bad. Garantee is ", hicf(RATING);
+		? "STP is bad. Garantee is ", 100 - hicf(RATING);
 	endif;
 
 var:	RATING
@@ -50,7 +50,7 @@ var: STUDYING
 rule: BADSTUDYING
 	PRIORITY: 80
 	if: hival(STUDYING) = false
-	then: RATING-=true cf hicf(STUDYING)/2
+	then: RATING+=true cf (100-hicf(STUDYING))/2
 	reason: If one can not study well, it is hard to start trading
 
 rule: GOODSTUDYING
@@ -74,7 +74,7 @@ var: DEMOACCOUNT
 rule:	NODEMO
 	PRIORITY: 80
 	if:	DEMOACCOUNT = "no"
-	then:	STUDYING += false cf hicf(DEMOACCOUNT)
+	then:	STUDYING += true cf (100-hicf(DEMOACCOUNT))
 	reason: If there is no demo account it is very hard to study
 
 rule:	FREEDEMO
@@ -108,7 +108,7 @@ rule:	HASSTUDYMATERIALS
 rule:	NOSTUDYMATERIALS
 	PRIORITY: 80
 	if:	HASSTUDYMATERIALS = false
-	then:	STUDYING += false cf hicf(HASSTUDYMATERIALS)*3/4
+	then:	STUDYING += true cf (100-hicf(HASSTUDYMATERIALS))*3/4
 	reason: If there are no study materials its harder to search for information
 
 var: WALLET
@@ -117,7 +117,7 @@ var: WALLET
 rule: BADWALLET
 	PRIORITY: 80
 	if: hival(WALLET) = false
-	then: RATING+=false cf hicf(WALLET)/2
+	then: RATING+=true cf (100-hicf(WALLET))/2
 	reason: If the wallet is bad it is more risky to trade
 
 rule: GOODWALLET
@@ -152,7 +152,7 @@ rule: MEDIUMMIN
 rule: LARGEMIN
 	PRIORITY: 80
 	if: MINSTART = "many"
-	then: WALLET+=false cf hicf(MINSTART)*3/4
+	then: WALLET+=true cf (100 - hicf(MINSTART))/4
 	reason: If many money needed to start it is tears away investors
 
 var: NUMOFCURRENCIES
@@ -167,7 +167,7 @@ var: NUMOFCURRENCIES
 rule: LITTLECURRENCIES
 	PRIORITY: 80
 	if: NUMOFCURRENCIES = "little"
-	then: WALLET+=false cf hicf(NUMOFCURRENCIES)
+	then: WALLET+=true cf (100-hicf(NUMOFCURRENCIES))
 	reason: the less currencies you can trade the less opportunities to invest
 
 rule: MANYCURRENCIES
@@ -182,7 +182,7 @@ var: ADVISERS
 rule: BADADVISERS
 	PRIORITY: 80
 	if: hival(ADVISERS) = false
-	then: RATING+=false cf hicf(ADVISERS)*3/4
+	then: RATING+=true cf (100-hicf(ADVISERS))*3/4
 	reason: If the advisers are bad there is nothing to do here
 
 rule: GOODADVISERS
@@ -209,7 +209,7 @@ rule:	MUSTUSEREALMONEY
 rule:	CANUSEDEMOMONEY
 	PRIORITY: 80
 	if:	USEREALMONEY = false
-	then:	ADVISERS += false cf hicf(USEREALMONEY)*2/3
+	then:	ADVISERS += true cf (100-hicf(USEREALMONEY))*2/3
 	reason: If the advisers use their real money they are less careful
 
 var: PERSENTOFRISKY
@@ -220,7 +220,7 @@ var: PERSENTOFRISKY
 rule:	RISKYADVISERS
 	PRIORITY: 80
 	if:	PERSENTOFRISKY>70
-	then:	ADVISERS += false cf hicf(PERSENTOFRISKY)
+	then:	ADVISERS += true cf (100 - hicf(PERSENTOFRISKY))
 	reason: If too many advisers are risky the followers have less oportunities to divercification
 
 rule:	NOTRISKYADVISERS
