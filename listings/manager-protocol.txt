@@ -1,0 +1,9 @@
+<root>: Kernel\Protocols
+ControlLogicToManager : 110
+  Namespace : UnitellerCrosswalkController
+  Generations : {1}
+  Messages
+    Start : 1
+      1 : 0
+    Stop : 2
+      1 : 0
