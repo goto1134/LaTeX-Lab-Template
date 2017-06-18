@@ -1,34 +1,23 @@
 \section{Цель работы}
-	Научиться описывать поведение компонента распределенной системы с помощью детерминированных конечных автоматов.
+	Научиться разрабатывать обработчики переходов в конечном автомате на языке C++
 		
 \section{Порядок выполенения работы}
-	\subsection{Устойчевые состояния компонета}
-	Из сценария следуют следующие состояния:
-	\begin{itemize}
-		\item Start - начальное состояние
-		\item Pause – состояние паузы
-		\item Green – зелёный свет
-		\item SwitchToYellow – свет переключается на жёлтый
-		\item Yellow – жёлтый свет
-		\item SwitchToRed – свет переключается на красный
-		\item Red – красный свет
-		\item SwitchToGreen – свет переключается на зелёный
-		\item End - конечное состояние
-	\end{itemize}
+	\subsection{Генерация файлов протокола}
+		Собраны ресурсы модуля с помощью  Microkernel IDE. Заголовочные файлы скопированы в заготовку проекта в Visual Studio.
+		\lstinputlisting[caption={Протокол контроллера}, language=C++]{listings/Uniteller.CrossroadController.h}
+		\lstinputlisting[caption={Протокол светофора}, language=C++]{listings/Uniteller.DeviceController.h}
+		\lstinputlisting[caption={Простокол основной логики}, language=C++]{listings/Uniteller.MainLogic.h}
+	\subsection{Карта обработчиков}
+		Заполнена карта обработчиков - добавлено нужное число регистраций функций переходов
+		\lstinputlisting[caption={Заголовочный файл машины состояний}, language=C++]{listings/machine.h}
 		
-	\subsection{Машина конечных состояний}
+	\subsection{Реализация обработчиков сообщений}
+		Реализованы тела обработчиков.
+		\lstinputlisting[caption={Реализация методов машины состояний}, language=C++]{listings/machine.cpp}
 	
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=\linewidth]{images/statemachine}
-			\caption{Машина состояний}
-			\label{fig:statemachine}
-		\end{figure}
-	
-		\FloatBarrier
-	\subsection{Декларативное описание машины конечных состояний}
-		\lstinputlisting[caption={Описание автомата}]{listings/Uniteller.CrossroadController.utx}
-	
+	\subsection{Сборка модуля}
+		Проект собран и создан файл динамической библиотеки.
+		\lstinputlisting[caption={Вывод сборки}]{listings/build.txt}
 
 \section{Вывод}
-	Описано поведение компонента распределенной системы с помощью детерминированных конечных автоматов.
+	Разработаны обработчики переходов в конечном автомате на языке C++.
