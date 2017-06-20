@@ -1,6 +1,0 @@
-﻿1>------ Сборка начата: проект: Uniteller.CrossroadController, Конфигурация: Debug Win32 ------
-...
-1>Uniteller.CrossroadController.vcxproj -> C:\Users\Andrew\Downloads\Test Workspace Win32\workspace\Uniteller\CrossroadController\t0524\modules\Uniteller.CrossroadController\Debug\Uniteller.CrossroadController.dll
-1>Uniteller.CrossroadController.vcxproj -> C:\Users\Andrew\Downloads\Test Workspace Win32\workspace\Uniteller\CrossroadController\t0524\modules\Uniteller.CrossroadController\Debug\Uniteller.CrossroadController.pdb (Partial PDB)
-1>Сборка проекта "Uniteller.CrossroadController.vcxproj" завершена.
-========== Сборка: успешно: 1, с ошибками: 0, без изменений: 0, пропущено: 0 ==========

@@ -1,23 +1,18 @@
 \section{Цель работы}
-	Научиться разрабатывать обработчики переходов в конечном автомате на языке C++
+	Научиться имитировать для компонента распределенной системы его окружение и воздействия для нужд построения автоматических тестов.
 		
 \section{Порядок выполенения работы}
-	\subsection{Генерация файлов протокола}
-		Собраны ресурсы модуля с помощью  Microkernel IDE. Заголовочные файлы скопированы в заготовку проекта в Visual Studio.
-		\lstinputlisting[caption={Протокол контроллера}, language=C++]{listings/Uniteller.CrossroadController.h}
-		\lstinputlisting[caption={Протокол светофора}, language=C++]{listings/Uniteller.DeviceController.h}
-		\lstinputlisting[caption={Простокол основной логики}, language=C++]{listings/Uniteller.MainLogic.h}
-	\subsection{Карта обработчиков}
-		Заполнена карта обработчиков - добавлено нужное число регистраций функций переходов
-		\lstinputlisting[caption={Заголовочный файл машины состояний}, language=C++]{listings/machine.h}
+	\subsection{Генерация заготовок тестов}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{images/tests}
+			\caption{Сгенерированные заголовки тестов}
+			\label{fig:tests}
+		\end{figure}
 		
-	\subsection{Реализация обработчиков сообщений}
-		Реализованы тела обработчиков.
-		\lstinputlisting[caption={Реализация методов машины состояний}, language=C++]{listings/machine.cpp}
-	
-	\subsection{Сборка модуля}
-		Проект собран и создан файл динамической библиотеки.
-		\lstinputlisting[caption={Вывод сборки}]{listings/build.txt}
-
+	\newpage
+	\subsection{Реализовать автоматический тест}
+		\lstinputlisting[caption={Реализация теста проверки смены состояния}]{listings/test.utx}
+		
 \section{Вывод}
-	Разработаны обработчики переходов в конечном автомате на языке C++.
+	Для компонента распределенной системы сымитировано его окружение и построен автоматический тест.
