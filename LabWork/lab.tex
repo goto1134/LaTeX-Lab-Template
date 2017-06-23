@@ -1,7 +1,8 @@
 	\section{Цель работы}
-		Требуется написать программу на языке FPTL, которая сжимает входную строку по алгоритму Хаффмана. 
+		Сгенерировать массив случайных чисел в промежутке от 0 до 1 используя библиотеку PVM.
 	\section{Описание алгоритма}
-		\lstinputlisting[caption={Программа на языке FPTL}]{listings/Haffman.txt}
+		\lstinputlisting[caption={Программа родитель}, language=C]{listings/main.c}
+		\lstinputlisting[caption={Дочерняя программа}, language=C]{listings/mas1.c}
 	\section{Результаты}
 		Информация о системе:
 		\begin{itemize}
@@ -9,14 +10,14 @@
 			\item ОЗУ: 16,00 ГБ;
 			\item Тип системы: 64 – разрядная;
 		\end{itemize}
-
-		\begin{figure}[h]
+	
+		\begin{table}
 			\centering
-			\includegraphics[width=1\linewidth]{images/time}
-			\label{fig:time}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=1\linewidth]{images/acceleration}
-			\label{fig:acceleration}
-		\end{figure}
+			\caption{Результаты вычислений, где $ P $ - количество процессов,  $ \tau $ - время выполнения в секундах}
+			\label{t1}
+			\csvreader[tabular=|r|c|,
+			table head=\hline $ P $  & $ \tau $  \\\hline,
+			late after line=\\\hline]%
+			{listings/data.csv}{nproc=\pnumber,time=\ftime}%
+			{ \pnumber& \ftime}%
+		\end{table}
