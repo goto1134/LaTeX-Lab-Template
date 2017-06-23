@@ -12,24 +12,25 @@
 			
 			Метод Гаусса требует $ O(n^3) $ арифметических операций. Тогда производительность метода можно оценить формулой $ n^3/\tau $, где $ \tau $ - время выполнения алгоритма. На основе таблицы результатов \ref{t1} составлен график зависимости производительности от количества процессоров \ref{fig:performance}. 
 			
-			Как видно из графика \ref{fig:performance}, производительность увеличивается линейно с ростом количества процессоров.
+			Как видно из графика \ref{fig:performance}, увеличение производительности с ростом количества процессоров близко к линейному.
 			
 		
 			\begin{table}
 				\centering
-				\caption{Результаты вычислений, где $ P $ - количество процессоров, $ n $ - размер системы уравнений, $ \tau_1 $ - время выполнения прямого хода, $ \tau_2 $ - время обратного хода. $ \tau = \tau_1 + \tau_2 $}
+				\caption{Результаты вычислений, где $ P $ - количество процессоров, $ n $ - размер системы уравнений, $ \tau $ - время выполнения}
 				\label{t1}
-				\csvreader[tabular=|l|r|l|c|c|,
-				table head=\hline & P & n & $ \tau_1 $ & $ \tau_2 $\\\hline,
+				\csvreader[tabular=|l|r|l|c|,
+				table head=\hline & P & n & $ \tau $\\\hline,
 				late after line=\\\hline]%
-				{listings/data.csv}{numberOfProcessors=\pnumber,equationCount=\n,firstRound=\ftime,secondRound=\stime}%
-				{\thecsvrow & \pnumber& \n & \ftime & \stime}%
+				{listings/data.csv}{numberOfProcessors=\pnumber,equationCount=\n,allRounds=\ftime}%
+				{\thecsvrow & \pnumber& \n & \ftime }%
 			\end{table}
 			\begin{figure}
 				\centering
 				\begin{tikzpicture}
-					\begin{axis}[ylabel=Производительность оп/сек., xlabel=Количество процессоров, xtick={0,3,6,9,12,16}]
-						\addplot table [x=numberOfProcessors, y expr=\thisrow{equationCount}^3/(\thisrow{firstRound} + \thisrow{secondRound}), col sep=comma] {listings/data.csv};
+					\begin{axis}[ylabel=Производительность оп/сек., xlabel=Количество процессоров, xtick={0,3,6,9,12,16,20,24,28,32}]
+						\addplot table [x=numberOfProcessors, y expr=\thisrow{equationCount}^3/(\thisrow{allRounds}), col sep=comma] {listings/data.csv};
+%						\addplot table [x=numberOfProcessors, y={create col/linear regression={y=equationCount}, col sep=comma] {listings/data.csv};
 					\end{axis}
 				\end{tikzpicture}
 				\caption{Зависимость производительности алгоритма от количества процессоров.} \label{fig:performance}
