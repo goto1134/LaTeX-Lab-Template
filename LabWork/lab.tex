@@ -1,6 +1,61 @@
 	\section{Цель работы}
-		Решить систему линейных уравнений методом Гаусса с выбором главного элемента в столбце. Матрица задачи должна занимать в памяти не менее 100 Мб на каждое процессорное ядро, задействованное в вычислениях, верхний предел – 1Гб на ядро. Необходимо учесть при этом, что выделить большой объем памяти под всю исходную матрицу невозможно.
+		Решение 2х-мерной задачи симуляции жидкости (газа) методом решеточных уравнений Больцмана.
+		
+		Матрица задачи должна занимать в памяти не менее 100 Мб на каждое процессорное ядро, задействованное в вычислениях, верхний предел – 1Гб на ядро. По возможности использовать при решении специализированные функции MPI: $ MPI\_Sendrecv\_replace $, $  MPI\_Reduce $.
 	\section{Порядок выполенения работы}
+	
+		\subsection{Описание алгоритма}
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0000}
+				\caption[Начальные условия]{}
+				\caption{}
+				\label{fig:start}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0001}
+				\caption{}
+				\label{fig:asd}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0002}
+				\caption{}
+				\label{fig:asd}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0003}
+				\caption{}
+				\label{fig:1}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0004}
+				\caption{}
+				\label{fig:asd}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0005}
+				\caption{}
+				\label{fig:asd}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0006}
+				\caption{}
+				\label{fig:asd}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{0007}
+				\caption{}
+				\label{fig:asd}
+			\end{figure}
+
 		\subsection{Методика распараллеливания}
 			Узел с нулевым индексом (далее главный) генерирует равный объём данных и рассылает поочерёдно всем остальным узлам. Далее главный узел сгенерирует вектор результатов.
 			
