@@ -1,9 +1,9 @@
 sudo: required
 dist: trusty
 before_install:
-  - sudo apt-get -qq update && sudo apt-get install texlive
+- sudo apt-get -qq update && sudo apt-get install -y texlive
 script:
-  - latexmk.exe -pdf -synctex=1 "LabWork"
+- latexmk.exe -pdf -synctex=1 "LabWork"
 #deploy:
 #  provider: releases
 #  api_key:
