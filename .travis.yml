@@ -4,13 +4,10 @@ before_install:
 - sudo apt-get -qq update && sudo apt-get install -y texlive-full latexmk
 script:
 - latexmk -pdf -synctex=1 -f "LabWork"
-#deploy:
-#  provider: releases
-#  api_key:
-#    secure: [YOUR KEY]
-#  file:
-#  - _build/your_file_1.pdf
-#  - _build/your_file_2.pdf
-#  skip_cleanup: true
-#  on:
-#tags: true
+deploy:
+  provider: releases
+  api_key:
+    secure: TX4tKPLuTiYyLAlIU0gPIFW+LInDOTyAWKXIMUfT0H9LqHGnwNvCVtfjXZgKcGsndVcgUfkVfNweOxqZUWQa4pqP11yuopNlS1qdWl3/2Ci15l5wubI74gNNKM6TrOboXVFJGW+lKj4IHw3w5OqPcqO8ncFKxZQJ8Hjiq15gQvQ3HdjMl4xOivV/1rYckIIvL29Rb/w3FH6+WeFqVu3BkZZXl9i0TxBvthe5CZ5vp/CL7uURn2JZ49iYqd1WB6qJXgP48lpM83M32QnJ/8VKuABudDrV7WIPBy8bd4F/0a8b6ISURcz0Mel0NnFepB9KL3ve2MBuyFBEjT4g7QCnGXBwgUVN37441D2d4rRx763tg7tHuiLUWtpU/iLIjVLgMpma1nird+40NOtsHsNNLutG733jTU9yPiD3OqVnfeIot9Ma2lI/+X5CIPswiaQs0Wfd1WFUunBIM9ASEiC6HY/LfK/dBXbuCfpGIHJUcglQtFs68pX56iJ+MvZ7KLkX/TjE6XzVwiSBYMYtR65VcsiX6EWAfIyQSPN65e+Z7aHXxooJ0lEEdgbIa84YRkWs9u1UyvwQT19w9+Hhz9Z59gEBfvv0TXBmUWLy7KKrT89ClbM/MvC+TgZoBeB9v/xustz4ssSmvqH9E6QwzDn/rnEwSZxjO0SRMjL0MfnFaiY=
+  file: LabWork.pdf
+  on:
+    repo: goto1134/LaTeX-Lab-Template
