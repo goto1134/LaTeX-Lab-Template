@@ -1,13 +1,14 @@
 sudo: required
 dist: trusty
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-generic-extra texlive-lang-cyrillic texlive-bibtex-extra
+- sudo apt-get -qq update && sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra
+  texlive-fonts-recommended texlive-generic-extra texlive-lang-cyrillic texlive-bibtex-extra
 script:
 - latexmk -pdf -synctex=1 -f "LabWork"
-#deploy:
-#  provider: releases
-#  api_key:
-#    secure: TX4tKPLuTiYyLAlIU0gPIFW+LInDOTyAWKXIMUfT0H9LqHGnwNvCVtfjXZgKcGsndVcgUfkVfNweOxqZUWQa4pqP11yuopNlS1qdWl3/2Ci15l5wubI74gNNKM6TrOboXVFJGW+lKj4IHw3w5OqPcqO8ncFKxZQJ8Hjiq15gQvQ3HdjMl4xOivV/1rYckIIvL29Rb/w3FH6+WeFqVu3BkZZXl9i0TxBvthe5CZ5vp/CL7uURn2JZ49iYqd1WB6qJXgP48lpM83M32QnJ/8VKuABudDrV7WIPBy8bd4F/0a8b6ISURcz0Mel0NnFepB9KL3ve2MBuyFBEjT4g7QCnGXBwgUVN37441D2d4rRx763tg7tHuiLUWtpU/iLIjVLgMpma1nird+40NOtsHsNNLutG733jTU9yPiD3OqVnfeIot9Ma2lI/+X5CIPswiaQs0Wfd1WFUunBIM9ASEiC6HY/LfK/dBXbuCfpGIHJUcglQtFs68pX56iJ+MvZ7KLkX/TjE6XzVwiSBYMYtR65VcsiX6EWAfIyQSPN65e+Z7aHXxooJ0lEEdgbIa84YRkWs9u1UyvwQT19w9+Hhz9Z59gEBfvv0TXBmUWLy7KKrT89ClbM/MvC+TgZoBeB9v/xustz4ssSmvqH9E6QwzDn/rnEwSZxjO0SRMjL0MfnFaiY=
-#  file: LabWork.pdf
-#  on:
-#    repo: goto1134/LaTeX-Lab-Template
+deploy:
+  provider: releases
+  api_key:
+    secure: LahO95BTE3OHYn1cveZb9EYEF0ynXc2vKenwTSDVP1HcAUqiPfWEwyeCLumTiuzfB4EGXX+67EMnzv5BSGABRd7dc4y5aGrCg5sT4IzvftRbJBY+dTJtzUkDDJGhkPf3DM3ylGh4iMYRLshgDh8roi2smhIlWPPSfagXu2tfdm8oIcTn/P/+bQEkMXGoCdCMaf14yo6NGReRL0FQXEG7J/1ytiZ5yFqK6iGnkhNsBLRculLD6IsLfU5o1ievoj6mTuHXp6d2pLQMV22YDl3vgh3dyj6Jsg7c8kJQh67TeX27VfABytjfhu2x0juLkIdw78lMpEBp+HGrhG/1DxVaxYoZ5qQHocJVDqKblrk/lo3UluAP4AaVMc/E3bhZxWC6FsM1mOw7t6RXh2Yy/2Z/uAZJK3m/LrVjvQ2kRkiptt+jTis7gB5KZI8uIrFe4VZGgSMB0s54/M2Uuy6ZkOhi9JDCyKhVSgvCZBqu47nupA/ZCZnTXiDqcvZwMH7N1Kz6ZZTWTO3hyIA/EXur2iT59imc5hdeI4i6ZRjjt092ltRuSBDftcdgKCDErTh1GbsIGG8SRahJitBO6wkGWwTp+hK0588ynHLqTTYbMw6Op5q+hQaSw4qiKnnc3iAkkwg+95fxw1x2kyS9r3J9vQwWtv9S01vGPJKbJaVukghfeOY=
+  file: LabWork.pdf
+  on:
+    repo: goto1134/LaTeX-Lab-Template
