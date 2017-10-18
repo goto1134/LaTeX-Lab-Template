@@ -1,0 +1,15 @@
+sudo: required
+dist: trusty
+before_install:
+- sudo apt-get -qq update && sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra
+  texlive-fonts-recommended texlive-generic-extra texlive-lang-cyrillic texlive-bibtex-extra
+script:
+- latexmk -pdf -synctex=1 -f "LabWork"
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: LahO95BTE3OHYn1cveZb9EYEF0ynXc2vKenwTSDVP1HcAUqiPfWEwyeCLumTiuzfB4EGXX+67EMnzv5BSGABRd7dc4y5aGrCg5sT4IzvftRbJBY+dTJtzUkDDJGhkPf3DM3ylGh4iMYRLshgDh8roi2smhIlWPPSfagXu2tfdm8oIcTn/P/+bQEkMXGoCdCMaf14yo6NGReRL0FQXEG7J/1ytiZ5yFqK6iGnkhNsBLRculLD6IsLfU5o1ievoj6mTuHXp6d2pLQMV22YDl3vgh3dyj6Jsg7c8kJQh67TeX27VfABytjfhu2x0juLkIdw78lMpEBp+HGrhG/1DxVaxYoZ5qQHocJVDqKblrk/lo3UluAP4AaVMc/E3bhZxWC6FsM1mOw7t6RXh2Yy/2Z/uAZJK3m/LrVjvQ2kRkiptt+jTis7gB5KZI8uIrFe4VZGgSMB0s54/M2Uuy6ZkOhi9JDCyKhVSgvCZBqu47nupA/ZCZnTXiDqcvZwMH7N1Kz6ZZTWTO3hyIA/EXur2iT59imc5hdeI4i6ZRjjt092ltRuSBDftcdgKCDErTh1GbsIGG8SRahJitBO6wkGWwTp+hK0588ynHLqTTYbMw6Op5q+hQaSw4qiKnnc3iAkkwg+95fxw1x2kyS9r3J9vQwWtv9S01vGPJKbJaVukghfeOY=
+  file: LabWork.pdf
+  on:
+    repo: goto1134/LaTeX-Lab-Template
