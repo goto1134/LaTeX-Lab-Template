@@ -13,3 +13,4 @@ deploy:
   file: LabWork.pdf
   on:
     repo: goto1134/LaTeX-Lab-Template
+    tags: true
