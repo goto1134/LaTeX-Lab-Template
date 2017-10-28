@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 before_install:
 - sudo apt-get -qq update && sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra
-  texlive-fonts-recommended texlive-generic-extra texlive-lang-cyrillic texlive-bibtex-extra
+  texlive-fonts-recommended texlive-generic-extra texlive-lang-cyrillic texlive-bibtex-extra texlive-science
 script:
 - latexmk -pdf -synctex=1 -f "CourseWork"
 deploy:
