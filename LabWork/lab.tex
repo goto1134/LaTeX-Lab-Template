@@ -1,5 +1,90 @@
 	\section{Цель работы}
+	Разработать библиотеку для реализации клиента программы SIMPR на языке Java.
 		
 	\section{Порядок выполенения работы}
+ 		\subsection{Выбор технологий для реализации}
+ 			В качестве языка для реализации библиотеки выбрана Java версии 8. 
+		   
+			Т.к. SIMPR осуществляет взаимодействие с клиентом посредством Win32 API, требуется использование библиотеки, позволяющей осуществить такое взаимодействие. 
+			В качестве основы для такого взаимодействия выбрана библиотека \href{https://github.com/jnr/jnr-ffi}{jnr-ffi}.
+			Данная библиотека позволяет описать все нужные методы для работы с динамически подгружаемыми библиотеками в специального вида Java-интерфейсах. 
+			Таким образом можно построить необходимую прослойку для обмена сообщениями.
+
+	 	\subsection{Реализация}
+	 		Результат реализации можно получить на сайте \href{https://github.com/goto1134/simpr-java-client}{GitHub} (https://github.com/goto1134/simpr-java-client). 
+	 		Там же можно посмотреть исходный код проекта и предложить исправления.
+	 		
+	 	\subsection{Инструкция}
+	 		\begin{enumerate}
+	 			\item Реализовать интерфейс $ com.github.goto1134.simpr.SimprClient $.
+	 				\begin{ListingEnv}[!h]% настройки floating аналогичны окружению figure
+%	 					\captiondelim{ } % разделитель идентификатора с номером от наименования
+	 					\caption{Пример реализации интерфейса SimprClient}
+	 					% далее метка для ссылки:
+	 					\label{list:client}
+	 					% окружение учитывает пробелы и табуляции и применяет их в сответсвии с настройками
+	 					\begin{lstlisting}[language={Java}]
+public class TestApp
+		implements SimprClient {
+	@Override
+	public boolean getConditionValue(int tableIndex, int conditionIndex) {
+		Alert alert = new Alert(CONFIRMATION, "Is condition " + tableIndex + " " + conditionIndex + " true?", ButtonType.YES, ButtonType.NO);
+		alert.setTitle("Checking condition");
+		Optional<ButtonType> buttonType = alert.showAndWait();
+		return buttonType.get() == ButtonType.YES;
+	}
 	
+	@Override
+	public void onEndStateReached(int tableIndex) {
+		Alert alert = new Alert(INFORMATION, "End state reached in table " + tableIndex);
+		alert.show();
+	}
+
+	@Override
+	public boolean performEvent(int tableIndex, int event) {
+		System.out.println("event " + tableIndex + " " + event + " occured");
+		return true;
+	}
+}
+	 					\end{lstlisting}
+	 				\end{ListingEnv}%
+	 			\item При запуске приложения создать $ com.github.goto1134.simpr.SimprMessageHandler $, передав в него реализованный интерфейс.
+	 			\begin{ListingEnv}[!h]% настройки floating аналогичны окружению figure
+	 				%	 					\captiondelim{ } % разделитель идентификатора с номером от наименования
+	 				\caption{Пример кода, запускающего приложение}
+	 				% далее метка для ссылки:
+	 				\label{list:handler}
+	 				% окружение учитывает пробелы и табуляции и применяет их в сответсвии с настройками
+	 				\begin{lstlisting}[language={Java}]
+private SimprMessageHandler smartHouse;
+
+@Override
+public void start(Stage primaryStage)
+		throws Exception {
+	smartHouse = new SimprMessageHandler("SmartHouse", "Smart House Simulator", this);
+	
+	StackPane root = new StackPane();
+	Scene scene = new Scene(root, 300, 250);
+	primaryStage.setTitle("Simpr Test Application");
+	primaryStage.setScene(scene);
+	primaryStage.show();
+}
+	 				\end{lstlisting}
+	 			\end{ListingEnv}%
+ 				\FloatBarrier
+ 				\item Запустить реализованное приложение.
+ 				\item Запустить симуляцию в SIMPR.	
+ 			\end{enumerate}
+ 		
+ 		
+ 		\textbf{В целях тестирования} создан простой класс $ com.github.goto1134.simpr.TestApp $, позволяющий отлаживать приложение SIMPR в диалоговом режиме. 
+ 		
+ 		После каждого запроса условия появляется диалог, в котором пользователь должен выбрать вариант ответа.
+ 		
+ 		После каждого события происходит вывод в лог.
+ 		
+ 		По окончании симуляции приложение сообщает об этом в виде диалога.
+			
 	\section{Вывод}
+		Разработана библиотека для реализации клиента программы SIMPR на языке Java. 
+		К библиотеке добавлена документация, а также построен пример использования.
