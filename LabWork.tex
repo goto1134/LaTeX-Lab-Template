@@ -8,24 +8,68 @@
 
 \input{LabWork/setup}                    % Упрощённые настройки шаблона
 
-\input{Dissertation/preamblenames}       % Переопределение именований, чтобы можно было и в преамбуле использовать
+\input{Dissertation/preamblenames}       % Переопределение именований, чтобы можно было и в преамбуле использовать	
 \input{common/newnames}  % Новые переменные, которые могут использоваться во всём проекте
 
 \input{common/data}      % Основные сведения
 \input{common/styles}    % Стили общие для диссертации и автореферата
 \input{Dissertation/disstyles}           % Стили для диссертации
-\input{Dissertation/userstyles}          % Стили для специфических пользовательских задач
-%\input{biblio/bibliopreamble}% Настройки библиографии из внешнего файла (там же выбор: встроенная или на основе biblatex)
+\input{Dissertation/userstyles}    	      % Стили для специфических пользовательских задач
+\input{biblio/bibliopreamble}% Настройки библиографии из внешнего файла (там же выбор: встроенная или на основе biblatex)
 
 \input{Dissertation/inclusioncontrol}    % Управление компиляцией отдельных частей диссертации
 \usepackage[section]{placeins}
 
 \usepackage{hyperref} %ссылки на сторонние ресурсы
 
-\renewcommand\thesection{\arabic{section}} %номера секций не содержат номер главы
+\usepackage{wasysym}
 
+\renewcommand\thesection{\arabic{section}} %номера секций не содержат номер главы
+\newcommand{\until}{\text{\textbf{until}}}
+\newcommand{\untilWeak}{\until_w}
+\newcommand{\untilWeakZero}{\until_{w0}}
+\newcommand{\since}{\text{\textbf{since}}}
+\newcommand{\sinceWeak}{\since_w}
+\newcommand{\sinceWeakZero}{\since_{w0}}
+\newcommand{\precede}{\text{~\textbf{precede}~}}
+\newcommand{\follow}{\text{\textbf{follow}}}
+\newcommand{\true}{\top}
+\newcommand{\false}{\bot}
+\newcommand{\FutureAlways}{\textbf{G}}
+\newcommand{\futureAlways}{\square}
+\newcommand{\PastAlways}{\textbf{H}}
+\newcommand{\pastAlways}{\blacksquare}
+\newcommand{\FutureEventually}{\textbf{F}}
+\newcommand{\futureEventually}{\lozenge}
+\newcommand{\PastEventually}{\textbf{P}}
+\newcommand{\pastEventually}{\blacklozenge}
+\newcommand{\Next}{\Circle}
+\newcommand{\Prev}{\CIRCLE}
+\newcommand{\untilShort}{\mathcal{U}}
+\newcommand{\sinceShort}{\mathcal{S}}
+\newcommand{\chop}{\mathcal{C}}
+\newcommand{\interval}{\mathcal{I}}
+
+\newcommand{\Futr}[2]{\text{\textbf{Futr}}(#1,#2)}
+\newcommand{\Past}[2]{\text{\textbf{Past}}(#1,#2)}
+\newcommand{\Lasts}[2]{\text{\textbf{Lasts}}(#1,#2)}
+\newcommand{\Lasted}[2]{\text{\textbf{Lasted}}(#1,#2)}
+\newcommand{\WhithinP}[2]{\text{\textbf{WhithinP}}(#1,#2)}
+\newcommand{\WhithinF}[2]{\text{\textbf{WhithinF}}(#1,#2)}
+\newcommand{\Whithin}[3]{\text{\textbf{Whithin}}(#1,#2,#3)}
+\newcommand{\SinceW}[2]{\text{\textbf{Since}}_w(#1,#2)}
+\newcommand{\SinceB}[4]{\text{\textbf{Since}}_B(#1,#2,#3,#4)}
+\newcommand{\UntilW}[2]{\text{\textbf{Until}}_w(#1,#2)}
+\newcommand{\UntilB}[4]{\text{\textbf{Until}}_B(#1,#2,#3,#4)}
+\newcommand{\AlwP}[1]{\text{\textbf{AlwP}}(#1)}
+\newcommand{\AlwF}[1]{\text{\textbf{AlwF}}(#1)}
+\newcommand{\Alw}[1]{\text{\textbf{Alw}}(#1)}
+
+\newcommand{\multiline}[1]{\begin{tabular}[t]{c} #1 \end{tabular}}
 \begin{document}
 	\input{common/renames}                   % Переопределение именований
 	\include{LabWork/title}           % Титульный лист
+	\tableofcontents
 	\include{LabWork/lab}
+	\include{Dissertation/references}
 \end{document}
